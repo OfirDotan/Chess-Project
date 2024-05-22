@@ -1,0 +1,97 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|d:\\newdocuments\\cyberandroid\\pictures\\chessproject\\king.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|solutionrelative:king.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|solutionrelative:mainactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|solutionrelative:mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21BC678E-65D9-4352-ACAC-BC7E6171CDC7}|FinalProjectChess.csproj|solutionrelative:pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "King.cs",
+              "DocumentMoniker": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\King.cs",
+              "RelativeDocumentMoniker": "King.cs",
+              "ToolTip": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\King.cs",
+              "RelativeToolTip": "King.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T09:23:28.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\MainMenu.cs",
+              "RelativeDocumentMoniker": "MainMenu.cs",
+              "ToolTip": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\MainMenu.cs",
+              "RelativeToolTip": "MainMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T09:12:07.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainActivity.cs",
+              "DocumentMoniker": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\MainActivity.cs",
+              "RelativeDocumentMoniker": "MainActivity.cs",
+              "ToolTip": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\MainActivity.cs",
+              "RelativeToolTip": "MainActivity.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAIwHEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T08:55:08.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Pawn.cs",
+              "DocumentMoniker": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\Pawn.cs",
+              "RelativeDocumentMoniker": "Pawn.cs",
+              "ToolTip": "D:\\NewDocuments\\CyberAndroid\\Pictures\\ChessProject\\Pawn.cs",
+              "RelativeToolTip": "Pawn.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T08:52:53.689Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Chess"
+        android:textSize="52dp"
+        android:textStyle="bold"
+        android:textColor="#2C8E8E"
+        android:textAppearance="@style/GlowingText" />
+    <TextView
+        android:id="@+id/tvWelcomeBack"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Welcome back USER!"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:textColor="#2C8E8E"/>
+    <Button
+        android:layout_marginTop="60dp"
+        android:id="@+id/btnLocal"
+        android:background="@drawable/buttonbackground"
+        android:foreground="@drawable/ripple_effect"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#4AEFEF" 
+        android:text="LOCAL"
+        android:textAppearance="@style/GlowingText" />
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnOnline"
+        android:background="@drawable/buttonbackground"
+        android:foreground="@drawable/ripple_effect"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#4AEFEF" 
+        android:text="ONLINE"
+        android:textAppearance="@style/GlowingText" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:text="Sign Out"
+            android:background="@drawable/rectangle_shape"
+            android:id="@+id/btnSignOut"
+            android:textColor="#2C8E8E"/>
+</LinearLayout>

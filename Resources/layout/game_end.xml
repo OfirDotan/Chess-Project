@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="350dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="White has won!"
+        android:id="@+id/tvWon"
+        android:textSize="32dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By checkmate"
+        android:id="@+id/tvWayOfWinning"
+        android:textSize="32dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"/>
+    <Button
+        android:layout_marginTop="60dp"
+        android:id="@+id/btnRematch"
+        android:background="@drawable/buttonbackground"
+        android:foreground="@drawable/ripple_effect"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#4AEFEF" 
+        android:text="Rematch"
+        android:textAppearance="@style/GlowingText" />
+   <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/btnMainMenu"
+        android:background="@drawable/buttonbackground"
+        android:foreground="@drawable/ripple_effect"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#4AEFEF" 
+        android:text="Main Menu"
+        android:textAppearance="@style/GlowingText" />
+</LinearLayout>

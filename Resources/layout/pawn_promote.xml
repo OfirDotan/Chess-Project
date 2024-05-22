@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose what to promote your pawn into"
+        android:textSize="22dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:id="@+id/promotionGroup">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#575050"
+            android:id="@+id/promoteQueen"
+            android:drawableStart="@drawable/whitequeen"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#575050"
+            android:id="@+id/promoteRook"
+            android:drawableStart="@drawable/whiterook"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#575050"
+            android:id="@+id/promoteBishop"
+            android:drawableStart="@drawable/whitebishop"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#575050"
+            android:id="@+id/promoteKnight"
+            android:drawableStart="@drawable/whiteknight"/>
+    </RadioGroup>
+</LinearLayout>

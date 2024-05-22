@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose a user to battle!"
+        android:layout_gravity="center"
+        android:textSize="32dp"
+        android:textStyle="bold"/>
+    <HorizontalScrollView
+        android:layout_gravity="center"
+         android:layout_width="400dp"
+         android:layout_height="150dp"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/scrollView"
+            android:layout_marginTop="20dp"/>
+    </HorizontalScrollView>
+    <ImageButton
+        android:id="@+id/btnRefresh"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/circle_shape"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_menu_rotate"/>
+    <Button
+        android:layout_marginTop="30dp"
+        android:layout_width="280dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:textSize="32dp"
+        android:text="Battle!"
+        android:backgroundTint="#2C8E8E"
+        android:textColor="#26414f"
+        android:id="@+id/btnBattle"/>
+</LinearLayout>
