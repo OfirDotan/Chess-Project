@@ -1,14 +1,9 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
-using Java.Security.Cert;
 using System;
-using System.Collections.Generic;
-using System.Net.Sockets;
-using System.Text;
+
 
 namespace FinalProjectChess
 {

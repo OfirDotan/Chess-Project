@@ -20,13 +20,15 @@ namespace FinalProjectChess
 
         private string wayOfWinning;
         private string winnerColor;
+        private bool shouldDisplayRematch;
 
-        public EndGameDialog(DialogHandler handler, Context context, string winnerColor, string wayOfWinning)
+        public EndGameDialog(DialogHandler handler, Context context, string winnerColor, string wayOfWinning, bool shouldDisplayRematch)
         {
             this.handler = handler;
             this.context = context;
             this.winnerColor = winnerColor;
             this.wayOfWinning = wayOfWinning;
+            this.shouldDisplayRematch = shouldDisplayRematch;
         }
 
         public void Start()
@@ -62,6 +64,10 @@ namespace FinalProjectChess
                 btnBackToMenu = endGameDialog.FindViewById<Button>(Resource.Id.btnMainMenu);
                 btnBackToMenu.Click += buttonClick;
 
+                if (!shouldDisplayRematch)
+                {
+                    btnRematch.Visibility = Android.Views.ViewStates.Invisible;
+                }
                 endGameDialog.Show();
             });
 

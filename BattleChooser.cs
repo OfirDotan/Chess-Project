@@ -1,9 +1,8 @@
-﻿    using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
 using System;
-using System.Runtime.Remoting.Contexts;
 using System.Threading;
 
 namespace FinalProjectChess
@@ -15,11 +14,10 @@ namespace FinalProjectChess
         Button battleButton;
         ImageButton refreshButton;
         string chosenUsername;
-        static string latestStringGot = "";
-        static bool didClick;
+        bool didClick;
         static Handler handler = new Handler();
-        static Activity currActivity;
-        volatile static bool didMoveToMatch;
+        Activity currActivity;
+        bool didMoveToMatch;
 
         Button lastButtonClicked;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -110,27 +108,24 @@ namespace FinalProjectChess
             }
 
         }
-        static void checkForAuthMessageThread()
+        void checkForAuthMessageThread()
         {
             bool battleAcceptedSent = false;
-            while (true)
+            while (!didMoveToMatch)
             {
                 string receivedData = ServerCommunication.receive(-1, 300);
                 if (receivedData != null)
                 {
-
                     if (receivedData.Equals("Battle Started") && !battleAcceptedSent)
                     {
                         ServerCommunication.send("Battle Accepted");
                         battleAcceptedSent = true;
-                        Thread.Sleep(10);
-                        handler.Post(() =>
+                        currActivity.RunOnUiThread(() =>
                         {
                             didMoveToMatch = true;
                             Intent intent = new Intent(currActivity, typeof(MultiplayerActivity));
-                            intent.AddFlags(ActivityFlags.NewTask);
                             currActivity.StartActivity(intent);
-                            ((BattleChooser) currActivity).CloseChooser();
+                            ((BattleChooser)currActivity).closeChooser();
                         });
                         break;
                     }
@@ -140,10 +135,10 @@ namespace FinalProjectChess
                         didClick = false;
                     }
                 }
-                Thread.Sleep(10);
+                Thread.Sleep(20);
             }
         }
-        private void CloseChooser()
+        private void closeChooser()
         {
             Finish();
         }

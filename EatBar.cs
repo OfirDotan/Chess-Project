@@ -1,13 +1,5 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace FinalProjectChess
 {
@@ -26,7 +18,7 @@ namespace FinalProjectChess
             this.barColor = barColor;
             this.tvPoint.Text = "";
         }
-        public void addEat(String pieceName, int piecePoint, ImageView newPieceImage)
+        public void addEat(string pieceName, int piecePoint, ImageView newPieceImage)
         {
             int imageID = getImageID(pieceName);
 

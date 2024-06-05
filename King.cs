@@ -20,11 +20,6 @@ namespace FinalProjectChess
         }
         public override bool isLegalMove(int newRow, int newCol)
         {
-            //Checks for castling
-            if (board[newRow, newCol] != null && !didMove && board[newRow, newCol].color == this.color && board[newRow, newCol] is Rook && !((Rook)board[newRow, newCol]).didMove)
-            {
-                return true;
-            }
             //Makes sure that no piece can eat a king or eat a piece of its own color
             if (board[newRow, newCol] != null &&  board[newRow, newCol].color == this.color)
             {

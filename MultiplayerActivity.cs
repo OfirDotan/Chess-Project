@@ -17,7 +17,7 @@ namespace FinalProjectChess
     [Activity(Label = "MultiplayerActivity")]
     public class MultiplayerActivity : Activity
     {
-        static volatile bool playerTurn;
+        volatile bool playerTurn;
         public static Piece[,] board;
         public static ImageView[,] imageViews;
         //0 - White, 1 - Black
@@ -28,6 +28,7 @@ namespace FinalProjectChess
         King whiteKing;
         TextView turnView;
         bool didGameEnd;
+        bool shouldExitThread;
         static Android.OS.Handler handler = new Android.OS.Handler();
 
         enum turns
@@ -68,6 +69,10 @@ namespace FinalProjectChess
             turnView = FindViewById<TextView>(Resource.Id.tvTurn);
 
             string message = ServerCommunication.receive(-1, 350);
+            while(message == null)
+            {
+                message = ServerCommunication.receive(-1, 350);
+            }
             if (message.Equals("Starting as White"))
             {
                 playerTurn = true;
@@ -89,6 +94,7 @@ namespace FinalProjectChess
             }
             // Create a new thread and pass the method to be executed by the thread
             Thread thread = new Thread(checkForOppMove);
+            shouldExitThread = false;
 
             // Start the thread
             thread.Start();
@@ -144,14 +150,16 @@ namespace FinalProjectChess
             if (ServerCommunication.socket.Connected)
             {
                 ServerCommunication.send("Abandoned");
+
             }
             ServerCommunication.socket.Close();
             ServerCommunication.socket = null;
+            shouldExitThread = true;
             base.OnDestroy();
         }
         void checkForOppMove()
         {
-            while (true)
+            while (!shouldExitThread)
             {
                 if (!playerTurn)
                 {
@@ -165,6 +173,7 @@ namespace FinalProjectChess
                                 Toast.MakeText(this, "The other player abandoned the match", ToastLength.Short).Show();
                                 ServerCommunication.socket.Close();
                                 Finish();
+                                shouldExitThread = true;
                             });
                         }
                         else
@@ -182,7 +191,7 @@ namespace FinalProjectChess
                             board[oldRow, oldCol] = null;
                             handler.Post(() =>
                             {
-                                if(eatenPiece != null)
+                                if (eatenPiece != null)
                                 {
                                     addToEat(eatenPiece.name, eatenPiece.pointWorth);
                                 }
@@ -192,19 +201,52 @@ namespace FinalProjectChess
                                 switchTurns();
                                 turnView.Text = currentTurn.ToString();
                                 playerTurn = !playerTurn;
+                                bool checkForCheck;
+                                if (currentTurn.ToString() == "White")
+                                {
+                                    checkForCheck = whiteKing.isChecked();
+                                    if (!checkForCheck && !canPreventCheckOrOnePieceMove("White", false))
+                                    {
+                                        //Stalemate
+                                        didGameEnd = true;
+                                        Toast.MakeText(this, "White king is Stalemated", ToastLength.Short).Show();
+                                        endGame("Black", "Stalemate");
+                                    }
+                                    //Needs to check if any piece can prevent the check, and if so then it isn't a checkmate
+                                    if (checkForCheck && whiteKing.isKingStuck() && !canPreventCheckOrOnePieceMove("White", true))
+                                    {
+                                        //Checkmate
+                                        didGameEnd = true;
+                                        Toast.MakeText(this, "White king is Checkmated", ToastLength.Short).Show();
+                                        endGame("Black", "Checkmate");
+                                    }
+                                }
+                                else
+                                {
+                                    checkForCheck = blackKing.isChecked();
+                                    if (!checkForCheck && !canPreventCheckOrOnePieceMove("Black", false))
+                                    {
+                                        //Stalemate
+                                        didGameEnd = true;
+                                        Toast.MakeText(this, "Black king is Stalemated", ToastLength.Short).Show();
+                                        endGame("White", "Stalemate");
+                                    }
+                                    //Needs to check if any piece can prevent the check, and if so then it isn't a checkmate
+                                    if (checkForCheck && blackKing.isKingStuck() && !canPreventCheckOrOnePieceMove("Black", true))
+                                    {
+                                        //Checkmate
+                                        didGameEnd = true;
+                                        Toast.MakeText(this, "Black king is Checkmated", ToastLength.Short).Show();
+                                        endGame("White", "Checkmate");
+                                    }
+                                }
                             });
+
                         }
                     }
                 }
                 Thread.Sleep(10);
             }
-        }
-
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         private void select(object sender, System.EventArgs e)
@@ -253,6 +295,7 @@ namespace FinalProjectChess
                     //This is the submitting part of the turn
                     else
                     {
+                        string sendTurn = "";
                         Piece eatenPiece = null;
                         string newPos = ((ImageView)sender).ContentDescription;
                         int selCol = selected[0] - 'A';
@@ -338,7 +381,7 @@ namespace FinalProjectChess
                                         imageViews[newRow, newCol].SetImageDrawable(imageViews[selRow, selCol].Drawable);
                                         imageViews[selRow, selCol].SetImageResource(Resource.Drawable.EmptyTile);
                                         //Message should look like this Queen#6#4#2#2
-                                        ServerCommunication.send("move#" + newRow + "#" + newCol + '#' + selRow + '#' + selCol);
+                                        sendTurn = "move#" + newRow + "#" + newCol + '#' + selRow + '#' + selCol;
                                         switchTurns();
                                         playerTurn = !playerTurn;
                                     }
@@ -347,7 +390,7 @@ namespace FinalProjectChess
                             //If the player isn't checked
                             else
                             {
-                                if (board[selRow, selCol].isLegalMove(newRow, newCol))
+                                if (board[selRow, selCol].isLegalMove(newRow, newCol) || (board[selRow, selCol] is King && board[newRow, newCol] is Rook && board[selRow, selCol].color == board[newRow, newCol].color))
                                 {
                                     Piece save = board[newRow, newCol];
                                     //Makes sure the selected new move is either null or a place with a piece that is not a king
@@ -400,7 +443,7 @@ namespace FinalProjectChess
                                         }
 
                                         //Message should look like this Queen#6#4#2#2
-                                        ServerCommunication.send("move#" + newRow + "#" + newCol + '#' + selRow + '#' + selCol);
+                                        sendTurn = "move#" + newRow + "#" + newCol + '#' + selRow + '#' + selCol;
                                         if (eatenPiece != null)
                                         {
                                             addToEat(eatenPiece.name, eatenPiece.pointWorth);
@@ -432,13 +475,16 @@ namespace FinalProjectChess
                             {
                                 //Stalemate
                                 didGameEnd = true;
-                                Toast.MakeText(this, "Whie king is Stalemated", ToastLength.Short).Show();
+                                sendTurn = "GameEnded%" + sendTurn;
+                                Toast.MakeText(this, "White king is Stalemated", ToastLength.Short).Show();
                                 endGame("Black", "Stalemate");
                             }
-                            if (checkForCheck && blackKing.isKingStuck() && !canPreventCheckOrOnePieceMove("White", true))
+                            //Needs to check if any piece can prevent the check, and if so then it isn't a checkmate
+                            if (checkForCheck && whiteKing.isKingStuck() && !canPreventCheckOrOnePieceMove("White", true))
                             {
-                                //Need to check if something can prevent the check, if so it is not a checkmate
+                                //Checkmate
                                 didGameEnd = true;
+                                sendTurn = "GameEnded%" + sendTurn;
                                 Toast.MakeText(this, "White king is Checkmated", ToastLength.Short).Show();
                                 endGame("Black", "Checkmate");
                             }
@@ -450,17 +496,21 @@ namespace FinalProjectChess
                             {
                                 //Stalemate
                                 didGameEnd = true;
+                                sendTurn = "GameEnded%" + sendTurn;
                                 Toast.MakeText(this, "Black king is Stalemated", ToastLength.Short).Show();
                                 endGame("White", "Stalemate");
                             }
+                            //Needs to check if any piece can prevent the check, and if so then it isn't a checkmate
                             if (checkForCheck && blackKing.isKingStuck() && !canPreventCheckOrOnePieceMove("Black", true))
                             {
-                                //Need to check if something can prevent the check, if so it is not a checkmate
+                                //Checkmate
                                 didGameEnd = true;
+                                sendTurn = "GameEnded%" + sendTurn;
                                 Toast.MakeText(this, "Black king is Checkmated", ToastLength.Short).Show();
                                 endGame("White", "Checkmate");
                             }
                         }
+                        ServerCommunication.send(sendTurn);
                     }
                 }
             }
@@ -472,7 +522,7 @@ namespace FinalProjectChess
         public void endGame(string color, string wayOfEnding)
         {
             DialogHandler handler = new DialogHandler(this);
-            EndGameDialog endGame = new EndGameDialog(handler, this, color, wayOfEnding);
+            EndGameDialog endGame = new EndGameDialog(handler, this, color, wayOfEnding, false);
             endGame.Start();
         }
 

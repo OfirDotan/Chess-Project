@@ -63,7 +63,7 @@ namespace FinalProjectChess
             TableLayout table = FindViewById<TableLayout>(Resource.Id.tableLayout);
             bestMoveBtn = FindViewById<Button>(Resource.Id.btnBestMove);
             bestMoveBtn.Click += bestMoveClick;
-            SetBoardSize(table);
+            setBoardSize(table);
 
             for (int row = 0; row < 8; row++)
             {
@@ -158,7 +158,7 @@ namespace FinalProjectChess
             }
         }
 
-        public void SetBoardSize(TableLayout tableLayout)
+        public void setBoardSize(TableLayout tableLayout)
         {
             // Calculate desired width based on the screen width
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -203,12 +203,6 @@ namespace FinalProjectChess
             eatBars[0] = new EatBar(whiteEatLayout, tvWhiteEat, "White");
             eatBars[1] = new EatBar(blackEatLayout, tvBlackEat, "Black");
 
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         private void select(object sender, System.EventArgs e)
@@ -347,7 +341,7 @@ namespace FinalProjectChess
                         //If the player isn't checked
                         else
                         {
-                            if (board[selRow, selCol].isLegalMove(newRow, newCol))
+                            if (board[selRow, selCol].isLegalMove(newRow, newCol) || (board[selRow, selCol] is King && board[newRow, newCol] is Rook && board[selRow, selCol].color == board[newRow, newCol].color))
                             {
                                 bool didCastle = false;
                                 bool couldntCastle = false;
@@ -567,7 +561,7 @@ namespace FinalProjectChess
         public void endGame(string color, string wayOfEnding)
         {
             DialogHandler handler = new DialogHandler(this);
-            EndGameDialog endGame = new EndGameDialog(handler, this, color, wayOfEnding);
+            EndGameDialog endGame = new EndGameDialog(handler, this, color, wayOfEnding, true);
             endGame.Start();
         }
         public void updateCastlingString()

@@ -1,10 +1,6 @@
 ﻿using Android.App;
-using Android.Bluetooth;
 using Android.Content;
-using Android.OS;
-using Android.Views;
 using Android.Widget;
-using System;
 using System.Threading;
 
 namespace FinalProjectChess
@@ -104,7 +100,6 @@ namespace FinalProjectChess
                 }
                 MainActivity.board[pawnRow, pawnCol].setCoords(pawnRow, pawnCol);
 
-                //Toast.MakeText(context, "You have selected: " + checkedPromotion, ToastLength.Short).Show();
             });
         }
     }

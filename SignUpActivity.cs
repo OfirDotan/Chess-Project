@@ -1,16 +1,8 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
 
-//serverIP change to actual IP line 60
 
 namespace FinalProjectChess
 {
@@ -45,16 +37,16 @@ namespace FinalProjectChess
         {
             if (sender is Button)
             {
-                //if (!etSignUpPassword.Text.Equals(etSignUpPasswordConfirm.Text))
-                //{
-                //    tvSignUpNotif.Text = "Your password fields must be identical.";
-                //}
-                //else if (!doesMeetPasswordRequirement(etSignUpPassword.Text))
-                //{
-                //    tvSignUpNotif.Text = "Your password does not meet the requirements.";
-                //}
-                //else
-                //{
+                if (!etSignUpPassword.Text.Equals(etSignUpPasswordConfirm.Text))
+                {
+                    tvSignUpNotif.Text = "Your password fields must be identical.";
+                }
+                else if (!doesMeetPasswordRequirement(etSignUpPassword.Text))
+                {
+                    tvSignUpNotif.Text = "Your password does not meet the requirements.";
+                }
+                else
+                {
                     tvSignUpNotif.Text = "";
 
                     string signUpResult = ServerCommunication.signUp(etSignUpUsername.Text, etSignUpPassword.Text);
@@ -75,7 +67,7 @@ namespace FinalProjectChess
                         Toast.MakeText(this, "Account Created!", ToastLength.Short).Show();
                         Finish();
                     }
-                //}
+                }
             }
             else
             {

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FinalProjectChess.BattleChooser">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABQAgAAAAAAAACIAQCAAIAECAEAAAIgAAAAAABACA=</HashCode>
+      <FileName>BattleChooser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.Bishop">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bishop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.BoardSetupActions">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEA=</HashCode>
+      <FileName>BoardSetupActions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.DialogHandler">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DialogHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.EatBar">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAgAACAAAAEAAAAAABAAAEAAA=</HashCode>
+      <FileName>EatBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.EndGameDialog">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgIACAAgAACQAAAAAAAAAAgEAAAIAAAAAAABBI=</HashCode>
+      <FileName>EndGameDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.King">
+    <Position X="2.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAAAEAAFAAAAAAAAAAAAAAAAAAAAAAQABAAA=</HashCode>
+      <FileName>King.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.Knight">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Knight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.LoadingDialog">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgAACEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>LoadingDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.LogInActivity">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAABAAAAAiAAAAAAAAAACARAAAAAAAAgABAIAA=</HashCode>
+      <FileName>LogInActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.MainActivity">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FinalProjectChess.MainActivity.turns" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="FinalProjectChess.MainActivity.promotionState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MainActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAIAAgAAEAAABAIBCAhIAADAAiMQIABBoBGAAhAIAAA=</HashCode>
+      <FileName>MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.MainMenu" Collapsed="true">
+    <Position X="12.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAAAAAAIgAAAAAAAAAAGIAAAAAAAASgAAAAgA=</HashCode>
+      <FileName>MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.MultiplayerActivity">
+    <Position X="21.5" Y="5.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FinalProjectChess.MultiplayerActivity.turns" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MultiplayerActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="FinalProjectChess.MultiplayerActivity.promotionState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MultiplayerActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>MAIBAggAEAAABAIBCAgIAABgAiAQIABAIBGCAgAAAAA=</HashCode>
+      <FileName>MultiplayerActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.Pawn">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FinalProjectChess.Pawn.TurnState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Pawn.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAgAg=</HashCode>
+      <FileName>Pawn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.PawnPromotion" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACBAAAIAAEAEAAAQAACAAACAIAAABAAAAAI=</HashCode>
+      <FileName>PawnPromotion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FinalProjectChess.Piece">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAEAAEAAAAAAQACAAAEAACAIAAAAAAAAAA=</HashCode>
+      <FileName>Piece.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.Queen">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Queen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.Rook">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Rook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.ServerCommunication">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAQEAAAAAAAAAAAEBCAAAAAAEAEAAABAA=</HashCode>
+      <FileName>ServerCommunication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalProjectChess.SignUpActivity">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAEAEAAAgAAAAABCgAEAAAAAAAAAAAIAA=</HashCode>
+      <FileName>SignUpActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
