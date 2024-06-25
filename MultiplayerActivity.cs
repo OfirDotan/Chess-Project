@@ -1,15 +1,10 @@
 ﻿using Android.App;
 using Android.Graphics;
-using Android.Graphics.Drawables;
 using Android.OS;
-using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Google.Android.Material.Tabs;
 using Java.Lang;
-using Java.Security.Cert;
-using static Android.InputMethodServices.Keyboard;
 using Thread = System.Threading.Thread;
 
 namespace FinalProjectChess
@@ -275,7 +270,7 @@ namespace FinalProjectChess
                             }
                             //Changed the selected to the new ID, and gives it the green highlight
                             selected = id;
-                            imageViews[id[1] - '1', id[0] - 'A'].SetBackgroundColor(new Color(16, 211, 20, 140));
+                            imageViews[id[1] - '1', id[0] - 'A'].SetBackgroundColor(new Color(62, 138, 250, 160));
                             isDone = true;
                         }
                         else

@@ -267,6 +267,7 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\EmptyTile.png" />
+    <AndroidResource Include="Resources\anim\pulse.xml" />
     <Content Include="Resources\drawable\RefreshArrow.png" />
     <AndroidResource Include="Resources\drawable\ripple_effect.xml">
       <SubType>Designer</SubType>

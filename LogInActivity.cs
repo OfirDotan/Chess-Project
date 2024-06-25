@@ -51,33 +51,42 @@ namespace FinalProjectChess
                 }
                 else if (btnLogin == ((Button)sender))
                 {
-                    string output = ServerCommunication.authenticate(etUsername.Text, etPassword.Text);
-
-                    if (output == null)
+                    if(etUsername.Text.Equals("")|| etPassword.Text.Equals(""))
                     {
-                        tvLoginNotif.Text = "Username, password invalid or you are already logged in, please try again.";
+                        tvLoginNotif.Text = "Fields can't be empty";
                     }
-                    else {
-                        //Remembering login details if user wants that
-                        if (cbRemember.Checked)
-                        {
-                            var editor = sp.Edit();
-                            editor.PutString("Username", etUsername.Text);
-                            editor.PutString("Password", etPassword.Text);
-                            editor.Commit();
-                        }
+                    else
+                    {
+                        string output = ServerCommunication.authenticate(etUsername.Text, etPassword.Text);
 
-                        //Move to multiplayer activity.
-                        Finish();
-                        if (output != "Empty") {
-                            Intent intent = new Intent(this, typeof(BattleChooser));
-                            intent.PutExtra("availableUsers", output);
-                            this.StartActivity(intent);
+                        if (output == null)
+                        {
+                            tvLoginNotif.Text = "Invalid credentials, or you're already logged in.";
                         }
                         else
                         {
-                            Toast.MakeText(this, "Connected! But you are the only user, try again later", ToastLength.Short).Show();
-                           
+                            //Remembering login details if user wants that
+                            if (cbRemember.Checked)
+                            {
+                                var editor = sp.Edit();
+                                editor.PutString("Username", etUsername.Text);
+                                editor.PutString("Password", etPassword.Text);
+                                editor.Commit();
+                            }
+
+                            //Move to multiplayer activity.
+                            Finish();
+                            if (output != "Empty")
+                            {
+                                Intent intent = new Intent(this, typeof(BattleChooser));
+                                intent.PutExtra("availableUsers", output);
+                                this.StartActivity(intent);
+                            }
+                            else
+                            {
+                                Toast.MakeText(this, "Connected! But you are the only user, try again later", ToastLength.Short).Show();
+
+                            }
                         }
                     }
 

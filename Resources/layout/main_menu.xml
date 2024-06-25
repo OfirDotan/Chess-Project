@@ -12,6 +12,8 @@
         android:textSize="52dp"
         android:textStyle="bold"
         android:textColor="#2C8E8E"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tvChess"
         android:textAppearance="@style/GlowingText" />
     <TextView
         android:id="@+id/tvWelcomeBack"

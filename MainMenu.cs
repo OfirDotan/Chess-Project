@@ -1,6 +1,7 @@
 ﻿  using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views.Animations;
 using Android.Widget;
 using System;
 
@@ -29,6 +30,10 @@ namespace FinalProjectChess
             var editor = sp.Edit();
             editor.PutString("Username", null);
             editor.Commit();
+
+            TextView chessTv = FindViewById<TextView>(Resource.Id.tvChess);
+            Animation pulseAnimation = AnimationUtils.LoadAnimation(this, Resource.Animation.pulse);
+            chessTv.Animation = pulseAnimation;
 
             localChessBtn = FindViewById<Button>(Resource.Id.btnLocal);
             onlineChessBtn = FindViewById<Button>(Resource.Id.btnOnline);
